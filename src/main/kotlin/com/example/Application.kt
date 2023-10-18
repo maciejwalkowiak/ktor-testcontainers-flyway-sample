@@ -9,6 +9,7 @@ fun main(args: Array<String>) {
 
 fun Application.module() {
     DatabaseFactory.init(environment.config)
+    flywayMigrations(DatabaseFactory.dataSource)
     configureSerialization()
     configureDatabases()
     configureRouting()

@@ -32,8 +32,10 @@ dependencies {
     implementation("org.postgresql:postgresql:$postgres_version")
     implementation("com.h2database:h2:$h2_version")
     implementation("com.zaxxer:HikariCP:$hikaricp_version")
+    implementation("org.flywaydb:flyway-core:9.22.3")
     implementation("io.ktor:ktor-server-netty-jvm")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    testImplementation("org.testcontainers:postgresql:1.19.1")
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }

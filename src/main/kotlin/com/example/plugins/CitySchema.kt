@@ -9,18 +9,10 @@ import java.sql.Statement
 data class City(val name: String, val population: Int)
 class CityService(private val connection: Connection) {
     companion object {
-        private const val CREATE_TABLE_CITIES =
-            "CREATE TABLE CITIES (ID SERIAL PRIMARY KEY, NAME VARCHAR(255), POPULATION INT);"
         private const val SELECT_CITY_BY_ID = "SELECT name, population FROM cities WHERE id = ?"
         private const val INSERT_CITY = "INSERT INTO cities (name, population) VALUES (?, ?)"
         private const val UPDATE_CITY = "UPDATE cities SET name = ?, population = ? WHERE id = ?"
         private const val DELETE_CITY = "DELETE FROM cities WHERE id = ?"
-
-    }
-
-    init {
-        val statement = connection.createStatement()
-        statement.executeUpdate(CREATE_TABLE_CITIES)
     }
 
     private var newCityId = 0
